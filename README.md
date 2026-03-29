@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧰 DevToolKit
 
-## Getting Started
+> Free, open-source collection of developer tools. Everything runs in your browser.
 
-First, run the development server:
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
+
+## ✨ Features
+
+- **15 tools** — JSON formatter, Base64, hash generator, regex tester, and more
+- **100% client-side** — your data never leaves your browser
+- **No signup** — just open and use
+- **Fast** — built with Next.js 16 + Tailwind CSS
+- **Open source** — MIT licensed, contributions welcome
+
+## 🛠️ Tools
+
+| Category | Tools |
+|----------|-------|
+| **Formatters** | JSON Formatter, CSV ↔ JSON, Markdown Preview |
+| **Encoders** | Base64, URL Encode, JWT Decoder, HTML Entity |
+| **Generators** | UUID Generator, Hash Generator, Lorem Ipsum |
+| **Text** | Diff Checker |
+| **Web** | Color Converter |
+| **Dev** | Regex Tester, Unix Timestamp, Cron Parser |
+
+## 🚀 Getting Started
 
 ```bash
+git clone https://github.com/qiangxy888/devtoolkit.git
+cd devtoolkit
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js 16](https://nextjs.org) — App Router
+- [Tailwind CSS 4](https://tailwindcss.com) — Styling
+- [TypeScript](https://www.typescriptlang.org) — Type safety
+- No external tool libraries — all tools implemented from scratch
 
-## Learn More
+## 📦 Deploy
 
-To learn more about Next.js, take a look at the following resources:
+One-click deploy to Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/qiangxy888/devtoolkit)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
+PRs welcome! To add a new tool:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create `app/tools/your-tool/page.tsx`
+2. Add entry to `lib/tools.ts`
+3. Use the `ToolLayout` component
+4. Submit PR
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT © 2026 DevToolKit

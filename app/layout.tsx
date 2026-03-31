@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DevToolKit — Free Online Developer Tools',
-  description: 'Open-source collection of 20+ developer tools. JSON formatter, Base64, hash generator, regex tester, and more. All free, all in your browser.',
-  keywords: ['developer tools', 'online tools', 'json formatter', 'base64 encode', 'hash generator', 'regex tester'],
+  metadataBase: new URL('https://10001.ai'),
+  title: '10001.ai — Free Online Tools',
+  description: 'Open-source collection of 22+ online tools for developers, writers, businesses, and creators. Free, browser-based, and privacy-friendly.',
+  keywords: ['online tools', 'free tools', 'json formatter', 'invoice generator', 'word counter', 'og image generator'],
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -24,13 +25,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="/" className="flex items-center gap-2">
-              <span className="text-2xl">🧰</span>
-              <span className="text-xl font-bold">Dev<span className="text-indigo-500">ToolKit</span></span>
+              <span className="text-xl font-bold">10001<span className="text-indigo-500">.ai</span></span>
             </a>
             <div className="flex items-center gap-4">
               <a href="https://github.com/qiangxy888/devtoolkit" target="_blank" rel="noopener"
                 className="text-gray-500 hover:text-gray-900 text-sm font-medium flex items-center gap-1">
-                ⭐ Star on GitHub
+                View on GitHub
               </a>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <p className="mt-1">
               <a href="https://github.com/qiangxy888/devtoolkit" className="text-indigo-500 hover:underline">GitHub</a>
               {' · '}
-              <a href="https://hitools.dev" className="text-indigo-500 hover:underline">HiTools</a>
+              <a href="https://10001.ai" className="text-indigo-500 hover:underline">10001.ai</a>
             </p>
           </div>
         </footer>

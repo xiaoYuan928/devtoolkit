@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { tools } from '@/lib/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://devtoolkit.dev';
+  const base = 'https://10001.ai';
   return [
     { url: base, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
     ...tools.map(t => ({

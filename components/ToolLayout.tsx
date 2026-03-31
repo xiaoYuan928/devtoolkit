@@ -3,12 +3,24 @@ import Link from 'next/link';
 interface ToolLayoutProps {
   title: string;
   description: string;
+  width?: 'default' | 'wide' | 'full';
   children: React.ReactNode;
 }
 
-export default function ToolLayout({ title, description, children }: ToolLayoutProps) {
+const widthClasses = {
+  default: 'max-w-5xl',
+  wide: 'max-w-6xl',
+  full: 'max-w-7xl',
+};
+
+export default function ToolLayout({
+  title,
+  description,
+  width = 'default',
+  children,
+}: ToolLayoutProps) {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className={`${widthClasses[width]} mx-auto px-4 py-8`}>
       <div className="mb-4">
         <Link href="/" className="text-indigo-500 hover:underline text-sm">← All Tools</Link>
       </div>

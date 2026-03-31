@@ -3,7 +3,7 @@ export interface ToolInfo {
   name: string;
   description: string;
   icon: string;
-  category: 'format' | 'encode' | 'generate' | 'text' | 'web' | 'dev';
+  category: 'format' | 'encode' | 'generate' | 'text' | 'web' | 'dev' | 'business' | 'writing' | 'image';
 }
 
 export const categories: Record<string, { label: string; icon: string }> = {
@@ -13,6 +13,9 @@ export const categories: Record<string, { label: string; icon: string }> = {
   text: { label: 'Text Tools', icon: '📝' },
   web: { label: 'Web Tools', icon: '🌐' },
   dev: { label: 'Dev Utilities', icon: '⚙️' },
+  business: { label: 'Business Tools', icon: '💼' },
+  writing: { label: 'Writing Tools', icon: '✍️' },
+  image: { label: 'Image Tools', icon: '🖼️' },
 };
 
 export const tools: ToolInfo[] = [
@@ -36,4 +39,15 @@ export const tools: ToolInfo[] = [
   { slug: 'regex-tester', name: 'Regex Tester', description: 'Test regular expressions with live matching', icon: '.*', category: 'dev' },
   { slug: 'timestamp', name: 'Unix Timestamp', description: 'Convert between Unix timestamps and dates', icon: '⏰', category: 'dev' },
   { slug: 'cron-parser', name: 'Cron Parser', description: 'Parse cron expressions and see next run times', icon: '📅', category: 'dev' },
+
+  { slug: 'email-signature', name: 'Email Signature', description: 'Create professional email signatures for Gmail, Outlook & Apple Mail', icon: '✉️', category: 'business' },
+  { slug: 'privacy-policy', name: 'Privacy Policy Generator', description: 'Generate GDPR & CCPA compliant privacy policies for your website', icon: '🛡️', category: 'business' },
+  { slug: 'contract-template', name: 'Contract Template', description: 'Generate NDA, freelance agreements, and terms of service', icon: '📋', category: 'business' },
+  { slug: 'invoice', name: 'Invoice Generator', description: 'Create and download professional invoices as PDF', icon: '🧾', category: 'business' },
+
+  { slug: 'word-counter', name: 'Word Counter', description: 'Count words, characters, sentences with keyword density analysis', icon: '📊', category: 'writing' },
+
+  { slug: 'form-builder', name: 'Form Builder', description: 'Drag-and-drop form builder with templates and conditional logic', icon: '📝', category: 'web' },
+
+  { slug: 'og-image', name: 'OG Image Generator', description: 'Generate Open Graph images with 12 templates and URL API', icon: '🖼️', category: 'image' },
 ];

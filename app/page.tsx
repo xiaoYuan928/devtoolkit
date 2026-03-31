@@ -22,10 +22,10 @@ export default function HomePage() {
       {/* Hero */}
       <div className="text-center mb-10">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Free <span className="text-indigo-500">Developer Tools</span>
+          Free <span className="text-indigo-500">Online Tools</span>
         </h1>
         <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-          {tools.length} tools, all free, all open source. Everything runs in your browser — your data never leaves.
+          {tools.length} tools, all free, all open source. For developers, writers, marketers, and businesses. Everything runs in your browser.
         </p>
 
         {/* Search */}
@@ -89,10 +89,10 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'DevToolKit',
-            description: 'Open-source collection of free developer tools',
-            url: 'https://devtoolkit.dev',
-            applicationCategory: 'DeveloperApplication',
+            name: '10001.ai',
+            description: 'Open-source collection of free online tools',
+            url: 'https://10001.ai',
+            applicationCategory: 'UtilitiesApplication',
             operatingSystem: 'Web',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
           }),

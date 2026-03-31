@@ -1,30 +1,52 @@
-# 🧰 DevToolKit
+# 10001.ai
 
-> Free, open-source collection of developer tools. Everything runs in your browser.
+Free online tools for developers, writers, businesses, and creators.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
+22+ tools, fully open source, all in your browser.
 
-## ✨ Features
+## Tool Categories
 
-- **15 tools** — JSON formatter, Base64, hash generator, regex tester, and more
-- **100% client-side** — your data never leaves your browser
-- **No signup** — just open and use
-- **Fast** — built with Next.js 16 + Tailwind CSS
-- **Open source** — MIT licensed, contributions welcome
+### Formatters
+- JSON Formatter
+- CSV ↔ JSON
+- Markdown Preview
 
-## 🛠️ Tools
+### Encoders & Decoders
+- Base64 Encode/Decode
+- URL Encode/Decode
+- JWT Decoder
+- HTML Entity
 
-| Category | Tools |
-|----------|-------|
-| **Formatters** | JSON Formatter, CSV ↔ JSON, Markdown Preview |
-| **Encoders** | Base64, URL Encode, JWT Decoder, HTML Entity |
-| **Generators** | UUID Generator, Hash Generator, Lorem Ipsum |
-| **Text** | Diff Checker |
-| **Web** | Color Converter |
-| **Dev** | Regex Tester, Unix Timestamp, Cron Parser |
+### Generators
+- UUID Generator
+- Hash Generator
+- Lorem Ipsum
 
-## 🚀 Getting Started
+### Text Tools
+- Diff Checker
+
+### Web Tools
+- Color Converter
+- Form Builder
+
+### Dev Utilities
+- Regex Tester
+- Unix Timestamp
+- Cron Parser
+
+### Business Tools
+- Email Signature Generator
+- Privacy Policy Generator
+- Contract Template Generator
+- Invoice Generator
+
+### Writing Tools
+- Word Counter
+
+### Image Tools
+- OG Image Generator
+
+## Quick Start
 
 ```bash
 git clone https://github.com/qiangxy888/devtoolkit.git
@@ -33,30 +55,31 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open `http://localhost:3000`.
 
-## 🏗️ Tech Stack
+## Project Structure
 
-- [Next.js 16](https://nextjs.org) — App Router
-- [Tailwind CSS 4](https://tailwindcss.com) — Styling
-- [TypeScript](https://www.typescriptlang.org) — Type safety
-- No external tool libraries — all tools implemented from scratch
+- `app/tools/{slug}/page.tsx`: tool pages
+- `lib/tools.ts`: tool registry and categories
+- `components/ToolLayout.tsx`: shared page wrapper
+- `app/sitemap.ts`: sitemap generated from the tool registry
 
-## 📦 Deploy
+## Contributing
 
-One-click deploy to Vercel:
+Add a new tool in two steps:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/qiangxy888/devtoolkit)
+1. Register it in `lib/tools.ts`
+2. Create `app/tools/{slug}/page.tsx` and wrap the UI with `ToolLayout`
 
-## 🤝 Contributing
+More detail is in `CONTRIBUTING.md`.
 
-PRs welcome! To add a new tool:
+## Tech Stack
 
-1. Create `app/tools/your-tool/page.tsx`
-2. Add entry to `lib/tools.ts`
-3. Use the `ToolLayout` component
-4. Submit PR
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
 
-## 📄 License
+## License
 
-MIT © 2026 DevToolKit
+MIT

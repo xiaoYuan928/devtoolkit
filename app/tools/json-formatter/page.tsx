@@ -48,7 +48,7 @@ export default function JsonFormatterPage() {
 
   const sample = () => {
     const s = `{
-  "name": "DevToolKit",
+  "name": "10001.ai",
   "version": "1.0.0",
   "tools": ["json-formatter", "base64", "hash"],
   "config": {

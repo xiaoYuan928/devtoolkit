@@ -69,33 +69,33 @@ export default function CronParserPage() {
   return (
     <ToolLayout title="Cron Expression Parser" description="Parse cron expressions and see the next scheduled run times.">
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">Cron Expression</label>
-        <input value={cron} onChange={e => setCron(e.target.value)} className="w-full font-mono text-lg border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 text-center tracking-wider" />
+        <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Cron Expression</label>
+        <input value={cron} onChange={e => setCron(e.target.value)} className="w-full font-mono text-lg border border-white/10 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#00FF41] text-center tracking-wider" />
       </div>
 
       {/* Field breakdown */}
       {isValid && (
         <div className="grid grid-cols-5 gap-2 mb-6">
           {parts.map((p, i) => (
-            <div key={i} className="text-center bg-white border border-gray-200 rounded-lg p-3">
-              <p className="font-mono text-lg font-bold text-indigo-600">{p}</p>
-              <p className="text-xs text-gray-500 mt-1">{FIELD_NAMES[i]}</p>
+            <div key={i} className="text-center bg-[#1f1f1f] border border-white/10 rounded-lg p-3">
+              <p className="font-mono text-lg font-bold text-[#00FF41]">{p}</p>
+              <p className="text-xs text-[#c6c6c6] mt-1">{FIELD_NAMES[i]}</p>
             </div>
           ))}
         </div>
       )}
 
       {/* Description */}
-      <div className="bg-indigo-50 rounded-xl p-4 mb-6">
-        <p className="text-sm text-indigo-800 font-medium">{describeCron(cron)}</p>
+      <div className="bg-[#2a2a2a] rounded-xl p-4 mb-6">
+        <p className="text-sm text-[#00FF41] font-medium">{describeCron(cron)}</p>
       </div>
 
       {/* Presets */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Presets</h3>
+        <h3 className="text-sm font-semibold text-[#e2e2e2] mb-2">Presets</h3>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map(p => (
-            <button key={p.cron} onClick={() => setCron(p.cron)} className={`text-xs px-3 py-1.5 rounded-full ${cron === p.cron ? 'bg-indigo-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+            <button key={p.cron} onClick={() => setCron(p.cron)} className={`text-xs px-3 py-1.5 rounded-full ${cron === p.cron ? 'bg-[#00FF41] text-white' : 'bg-[#1f1f1f] text-[#e2e2e2] hover:bg-[#1f1f1f]'}`}>
               {p.label}
             </button>
           ))}
@@ -105,11 +105,11 @@ export default function CronParserPage() {
       {/* Next runs */}
       {nextRuns.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-gray-700 mb-2">Next 5 Runs</h3>
-          <div className="bg-white border border-gray-200 rounded-xl divide-y">
+          <h3 className="text-sm font-semibold text-[#e2e2e2] mb-2">Next 5 Runs</h3>
+          <div className="bg-[#1f1f1f] border border-white/10 rounded-xl divide-y">
             {nextRuns.map((r, i) => (
-              <div key={i} className="px-4 py-2 font-mono text-sm text-gray-700 flex items-center gap-2">
-                <span className="text-gray-400 text-xs w-4">{i + 1}</span> {r}
+              <div key={i} className="px-4 py-2 font-mono text-sm text-[#e2e2e2] flex items-center gap-2">
+                <span className="text-[#c6c6c6] text-xs w-4">{i + 1}</span> {r}
               </div>
             ))}
           </div>

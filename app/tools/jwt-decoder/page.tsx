@@ -21,19 +21,19 @@ export default function JwtDecoderPage() {
   return (
     <ToolLayout title="JWT Decoder" description="Decode and inspect JSON Web Tokens. Shows header, payload, and expiration.">
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">JWT Token</label>
-        <textarea value={token} onChange={e => setToken(e.target.value)} className="w-full h-24 font-mono text-xs border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-400 resize-none" placeholder="Paste your JWT here..." />
+        <label className="block text-sm font-medium text-[#e2e2e2] mb-1">JWT Token</label>
+        <textarea value={token} onChange={e => setToken(e.target.value)} className="w-full h-24 font-mono text-xs border border-white/10 rounded-xl p-4 focus:ring-2 focus:ring-[#00FF41] resize-none" placeholder="Paste your JWT here..." />
       </div>
-      {result?.error && <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-2 text-sm mb-4">{result.error}</div>}
+      {result?.error && <div className="bg-white/10 border border-white/20 text-white/70 rounded-lg px-4 py-2 text-sm mb-4">{result.error}</div>}
       {result && !result.error && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-red-600 mb-1">Header</label>
-            <pre className="bg-gray-900 text-green-400 rounded-xl p-4 text-xs overflow-auto">{result.header}</pre>
+            <label className="block text-sm font-semibold text-white/70 mb-1">Header</label>
+            <pre className="bg-[#1f1f1f] text-[#00FF41] rounded-xl p-4 text-xs overflow-auto">{result.header}</pre>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-indigo-600 mb-1">Payload</label>
-            <pre className="bg-gray-900 text-green-400 rounded-xl p-4 text-xs overflow-auto">{result.payload}</pre>
+            <label className="block text-sm font-semibold text-[#00FF41] mb-1">Payload</label>
+            <pre className="bg-[#1f1f1f] text-[#00FF41] rounded-xl p-4 text-xs overflow-auto">{result.payload}</pre>
           </div>
         </div>
       )}

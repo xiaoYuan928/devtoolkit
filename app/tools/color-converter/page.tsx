@@ -33,27 +33,27 @@ export default function ColorConverterPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">HEX</label>
+            <label className="block text-sm font-medium text-[#e2e2e2] mb-1">HEX</label>
             <div className="flex gap-2">
               <input type="color" value={hex} onChange={e => setHex(e.target.value)} className="w-12 h-10 rounded cursor-pointer" />
-              <input value={hex} onChange={e => setHex(e.target.value)} className="flex-1 font-mono text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400" />
+              <input value={hex} onChange={e => setHex(e.target.value)} className="flex-1 font-mono text-sm border border-white/10 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#00FF41]" />
             </div>
           </div>
           {rgb && (
             <>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">RGB</label>
-                <input value={`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`} readOnly className="w-full font-mono text-sm border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" />
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">RGB</label>
+                <input value={`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`} readOnly className="w-full font-mono text-sm border border-white/10 rounded-lg px-3 py-2 bg-[#131313]" />
               </div>
               {hsl && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">HSL</label>
-                  <input value={`hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`} readOnly className="w-full font-mono text-sm border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" />
+                  <label className="block text-sm font-medium text-[#e2e2e2] mb-1">HSL</label>
+                  <input value={`hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`} readOnly className="w-full font-mono text-sm border border-white/10 rounded-lg px-3 py-2 bg-[#131313]" />
                 </div>
               )}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">CSS Variables</label>
-                <div className="font-mono text-xs bg-gray-900 text-green-400 rounded-lg p-3">
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">CSS Variables</label>
+                <div className="font-mono text-xs bg-[#1f1f1f] text-[#00FF41] rounded-lg p-3">
                   <p>--color-primary: {hex};</p>
                   <p>--color-rgb: {rgb.join(', ')};</p>
                   {hsl && <p>--color-hsl: {hsl[0]} {hsl[1]}% {hsl[2]}%;</p>}
@@ -63,12 +63,12 @@ export default function ColorConverterPage() {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Preview</label>
-          <div className="rounded-xl overflow-hidden border border-gray-200">
+          <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Preview</label>
+          <div className="rounded-xl overflow-hidden border border-white/10">
             <div style={{ backgroundColor: hex }} className="h-40" />
-            <div className="p-4 bg-white">
+            <div className="p-4 bg-[#1f1f1f]">
               <div className="flex gap-2">
-                <button style={{ backgroundColor: hex }} className="text-white px-4 py-2 rounded-lg text-sm font-medium">Button</button>
+                <button style={{ backgroundColor: hex }} className="text-white/70 px-4 py-2 rounded-lg text-sm font-medium">Button</button>
                 <span style={{ color: hex }} className="font-bold flex items-center">Text Color</span>
               </div>
             </div>

@@ -242,34 +242,34 @@ export default function PrivacyPolicyPage() {
     >
       <div className="max-w-4xl mx-auto pt-2">
         {!generatedPolicy ? (
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-[#1f1f1f] rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold mb-6">Fill in your details</h2>
 
             {/* Basic Info */}
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Website Name *</label>
-                <input type="text" placeholder="My Awesome App" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Website Name *</label>
+                <input type="text" placeholder="My Awesome App" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                   value={formData.websiteName} onChange={(e) => setFormData({ ...formData, websiteName: e.target.value })} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Website URL *</label>
-                <input type="url" placeholder="https://example.com" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Website URL *</label>
+                <input type="url" placeholder="https://example.com" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                   value={formData.websiteUrl} onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
-                <input type="text" placeholder="Acme Inc." className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Company Name</label>
+                <input type="text" placeholder="Acme Inc." className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                   value={formData.companyName} onChange={(e) => setFormData({ ...formData, companyName: e.target.value })} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Contact Email *</label>
-                <input type="email" placeholder="privacy@example.com" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Contact Email *</label>
+                <input type="email" placeholder="privacy@example.com" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                   value={formData.contactEmail} onChange={(e) => setFormData({ ...formData, contactEmail: e.target.value })} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
-                <input type="text" placeholder="United States" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Country</label>
+                <input type="text" placeholder="United States" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                   value={formData.country} onChange={(e) => setFormData({ ...formData, country: e.target.value })} />
               </div>
             </div>
@@ -279,8 +279,8 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-lg font-semibold mb-3">What data do you collect?</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                 {DATA_TYPES.map((dt) => (
-                  <label key={dt.id} className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input type="checkbox" className="rounded text-blue-600" checked={formData.dataCollected.includes(dt.id)}
+                  <label key={dt.id} className="flex items-center gap-2 p-2 rounded hover:bg-[#131313] cursor-pointer">
+                    <input type="checkbox" className="rounded text-[#00FF41]" checked={formData.dataCollected.includes(dt.id)}
                       onChange={() => handleCheckbox("dataCollected", dt.id)} />
                     <span className="text-sm">{dt.label}</span>
                   </label>
@@ -293,8 +293,8 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-lg font-semibold mb-3">Third-party services used</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                 {THIRD_PARTY_SERVICES.map((svc) => (
-                  <label key={svc} className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input type="checkbox" className="rounded text-blue-600" checked={formData.thirdPartyServices.includes(svc)}
+                  <label key={svc} className="flex items-center gap-2 p-2 rounded hover:bg-[#131313] cursor-pointer">
+                    <input type="checkbox" className="rounded text-[#00FF41]" checked={formData.thirdPartyServices.includes(svc)}
                       onChange={() => handleCheckbox("thirdPartyServices", svc)} />
                     <span className="text-sm">{svc}</span>
                   </label>
@@ -307,12 +307,12 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-lg font-semibold mb-3">Compliance requirements</h3>
               <div className="flex gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="rounded text-blue-600" checked={formData.gdpr}
+                  <input type="checkbox" className="rounded text-[#00FF41]" checked={formData.gdpr}
                     onChange={(e) => setFormData({ ...formData, gdpr: e.target.checked })} />
                   <span>🇪🇺 GDPR (European users)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="rounded text-blue-600" checked={formData.ccpa}
+                  <input type="checkbox" className="rounded text-[#00FF41]" checked={formData.ccpa}
                     onChange={(e) => setFormData({ ...formData, ccpa: e.target.checked })} />
                   <span>🇺🇸 CCPA (California users)</span>
                 </label>
@@ -320,7 +320,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <button onClick={handleGenerate}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">
+              className="w-full bg-[#00FF41] hover:bg-[#00FF41] text-white/70 font-semibold py-3 px-6 rounded-xl text-lg transition">
               Generate Privacy Policy →
             </button>
           </div>
@@ -329,24 +329,24 @@ export default function PrivacyPolicyPage() {
             {/* Action buttons */}
             <div className="flex gap-3 mb-6">
               <button onClick={handleCopy}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition">
+                className="bg-[#00FF41] hover:bg-[#00FF41] text-white/70 font-medium py-2 px-5 rounded-lg transition">
                 {copied ? "✅ Copied!" : "📋 Copy to Clipboard"}
               </button>
               <button onClick={handleDownload}
-                className="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-5 rounded-lg transition">
+                className="bg-[#1f1f1f] hover:bg-[#1f1f1f] text-white/70 font-medium py-2 px-5 rounded-lg transition">
                 ⬇️ Download Markdown
               </button>
               <button onClick={() => setGeneratedPolicy("")}
-                className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-5 rounded-lg transition">
+                className="bg-[#1f1f1f] hover:bg-[#1f1f1f] text-[#e2e2e2] font-medium py-2 px-5 rounded-lg transition">
                 ← Edit Details
               </button>
             </div>
 
             {/* Generated Policy */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 prose prose-blue max-w-none">
+            <div className="bg-[#1f1f1f] rounded-2xl shadow-lg p-8 prose prose-blue max-w-none">
               {generatedPolicy.split("\n").map((line, i) => {
                 if (line.startsWith("# ")) return <h1 key={i} className="text-3xl font-bold mt-4 mb-2">{line.slice(2)}</h1>;
-                if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold mt-6 mb-2 text-blue-800">{line.slice(3)}</h2>;
+                if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold mt-6 mb-2 text-[#00FF41]">{line.slice(3)}</h2>;
                 if (line.startsWith("### ")) return <h3 key={i} className="text-lg font-semibold mt-4 mb-1">{line.slice(4)}</h3>;
                 if (line.startsWith("- **")) {
                   const parts = line.slice(2).split("**");
@@ -355,7 +355,7 @@ export default function PrivacyPolicyPage() {
                 if (line.startsWith("- ")) return <p key={i} className="ml-4 my-1">• {line.slice(2)}</p>;
                 if (line.startsWith("**") && line.endsWith("**")) return <p key={i} className="font-semibold my-2">{line.replace(/\*\*/g, "")}</p>;
                 if (line.startsWith("---")) return <hr key={i} className="my-4" />;
-                if (line.startsWith("*") && line.endsWith("*")) return <p key={i} className="text-sm text-gray-500 italic">{line.replace(/\*/g, "")}</p>;
+                if (line.startsWith("*") && line.endsWith("*")) return <p key={i} className="text-sm text-[#c6c6c6] italic">{line.replace(/\*/g, "")}</p>;
                 if (line.trim() === "") return <br key={i} />;
                 return <p key={i} className="my-1">{line}</p>;
               })}
@@ -373,9 +373,9 @@ export default function PrivacyPolicyPage() {
               { q: "Does this cover GDPR and CCPA?", a: "Yes! You can enable GDPR (for European users) and CCPA (for California users) compliance sections. The generated policy will include the required rights and disclosures." },
               { q: "Can I edit the generated policy?", a: "Absolutely. Copy the generated text and modify it as needed. The policy is yours to customize." },
             ].map((faq, i) => (
-              <details key={i} className="bg-white rounded-lg shadow p-4 cursor-pointer">
+              <details key={i} className="bg-[#1f1f1f] rounded-lg shadow p-4 cursor-pointer">
                 <summary className="font-semibold">{faq.q}</summary>
-                <p className="mt-2 text-gray-600">{faq.a}</p>
+                <p className="mt-2 text-[#c6c6c6]">{faq.a}</p>
               </details>
             ))}
           </div>

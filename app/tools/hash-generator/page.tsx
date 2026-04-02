@@ -34,17 +34,17 @@ export default function HashGeneratorPage() {
   return (
     <ToolLayout title="Hash Generator" description="Generate SHA-256, SHA-384, SHA-512, and SHA-1 hashes. Uses Web Crypto API — nothing leaves your browser.">
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">Input Text</label>
-        <textarea value={input} onChange={e => generate(e.target.value)} className="w-full h-32 font-mono text-sm border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-400 resize-none" placeholder="Enter text to hash..." />
+        <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Input Text</label>
+        <textarea value={input} onChange={e => generate(e.target.value)} className="w-full h-32 font-mono text-sm border border-white/10 rounded-xl p-4 focus:ring-2 focus:ring-[#00FF41] resize-none" placeholder="Enter text to hash..." />
       </div>
       <div className="space-y-3">
         {ALGORITHMS.map(({ label }) => (
-          <div key={label} className="bg-white rounded-xl border border-gray-200 p-4">
+          <div key={label} className="bg-[#1f1f1f] rounded-xl border border-white/10 p-4">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-sm font-semibold text-gray-700">{label}</span>
-              {hashes[label] && <button onClick={() => navigator.clipboard.writeText(hashes[label])} className="text-xs text-indigo-500 hover:underline">Copy</button>}
+              <span className="text-sm font-semibold text-[#e2e2e2]">{label}</span>
+              {hashes[label] && <button onClick={() => navigator.clipboard.writeText(hashes[label])} className="text-xs text-[#00FF41] hover:underline">Copy</button>}
             </div>
-            <p className="font-mono text-xs text-gray-600 break-all">{hashes[label] || '—'}</p>
+            <p className="font-mono text-xs text-[#c6c6c6] break-all">{hashes[label] || '—'}</p>
           </div>
         ))}
       </div>

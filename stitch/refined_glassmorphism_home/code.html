@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#00567c",
+              "on-error-container": "#510017",
+              "surface-dim": "#d0d5d8",
+              "tertiary": "#b00d6a",
+              "on-background": "#1A1C1E",
+              "outline": "#747779",
+              "on-secondary-container": "#004c6f",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e1e2e5",
+              "primary-fixed": "#ae8dff",
+              "inverse-surface": "#0b0f10",
+              "on-surface": "#1A1C1E",
+              "background": "#F9FAFB",
+              "primary-dim": "#5e26c7",
+              "surface-tint": "#6a37d4",
+              "surface": "#F9FAFB",
+              "error": "#b41340",
+              "primary": "#6a37d4",
+              "on-tertiary": "#ffeff2",
+              "tertiary-dim": "#9d005d",
+              "secondary-fixed": "#a4d8ff",
+              "on-tertiary-fixed-variant": "#740044",
+              "secondary-fixed-dim": "#81ccff",
+              "surface-variant": "#d9dde0",
+              "inverse-primary": "#a078ff",
+              "surface-container-low": "#f1f3f5",
+              "on-tertiary-container": "#64003a",
+              "secondary": "#00628c",
+              "on-primary-fixed": "#000000",
+              "error-dim": "#a70138",
+              "surface-bright": "#f5f7f9",
+              "tertiary-fixed": "#ff8cbc",
+              "primary-fixed-dim": "#a27cff",
+              "secondary-container": "#a4d8ff",
+              "secondary-dim": "#00557b",
+              "primary-container": "#ae8dff",
+              "on-primary-fixed-variant": "#370086",
+              "error-container": "#f74b6d",
+              "tertiary-fixed-dim": "#ff73b1",
+              "on-tertiary-fixed": "#37001d",
+              "on-secondary": "#e9f4ff",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container": "#e5e9eb",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#003853",
+              "surface-container-high": "#dfe3e6",
+              "on-surface-variant": "#44474a",
+              "tertiary-container": "#ff8cbc",
+              "on-error": "#ffefef",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#2b006e"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .bg-vibrant-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(174, 141, 255, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(0, 98, 140, 0.05) 0%, transparent 40%),
+                        #F9FAFB;
+        }
+        .hero-glow {
+            text-shadow: 0 0 40px rgba(106, 55, 212, 0.15);
+        }
+    </style>
+</head>
+<body class="font-body bg-vibrant-gradient min-h-screen text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-full mt-4 mx-auto max-w-6xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/40 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-dim">LuminousDev</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-primary font-bold border-b-2 border-primary hover:text-primary-dim transition-colors duration-300" href="#">Components</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Docs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Templates</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-low/60 backdrop-blur-md rounded-full pl-10 pr-4 py-2 text-sm border-none focus:ring-2 focus:ring-primary outline-none w-48" placeholder="Search tools..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold active:scale-95 transition-transform shadow-md hover:shadow-lg">Get Started</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-24 relative">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6 hero-glow">
+                Free Online Tools
+            </h1>
+<p class="text-on-surface-variant text-xl max-w-2xl mx-auto mb-12 font-medium">
+                The ultimate workspace for developers. Precision instruments for formatting, converting, and analyzing your code.
+            </p>
+<!-- Prominent Search Bar Container -->
+<div class="max-w-3xl mx-auto glass-panel p-2 rounded-full flex items-center shadow-xl border border-white group focus-within:ring-4 focus-within:ring-primary/10 transition-all">
+<div class="flex-1 flex items-center px-6">
+<span class="material-symbols-outlined text-primary text-2xl mr-4">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface text-lg font-medium placeholder:text-on-surface-variant/40" placeholder="I need a tool for JSON formatting..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold hover:bg-primary-dim transition-colors flex items-center gap-2 shadow-sm">
+                    Find Tools
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Tool Categories Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
+<!-- Featured Card (JSON) -->
+<div class="md:col-span-8 glass-panel rounded-[2rem] p-8 flex flex-col md:flex-row gap-8 items-center shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all group overflow-hidden relative">
+<div class="w-full md:w-1/2 aspect-video bg-surface-container-highest rounded-2xl overflow-hidden relative border border-white/50">
+<img class="w-full h-full object-cover" data-alt="Close up of high quality laptop screen showing vibrant syntax highlighted JSON code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpn5ARsJjcFfMWORobVor4Rs9-fGUzPoq18DobAeC33ipmnPRlPbD_ODA-XBaYwypolsQRkaMerJY0vNVEnyvswqIOBEF-99-sMUqQzlhMQjTZvWT9B4caHCh_3jaLpdResvtAzXSed7IsbBPY-tgru8gHnsWD6iigGsBuQ5UEsNzTy2g3CCNK7zfIHIlgVUTQwaK9U4rwX42fdzgjh_Jf08UHVY41SrwTi96Lh5wR4DpumBN7Tmbz1KcBtchpiCG48AQ75J6vk_c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<div class="w-full md:w-1/2">
+<div class="bg-primary/5 text-primary px-3 py-1 rounded-full text-xs font-bold w-fit mb-4">MOST POPULAR</div>
+<h3 class="font-headline text-3xl font-bold mb-4 tracking-tight">JSON Formatter &amp; Validator</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">
+                        Beautify, minify, and validate your JSON data with instant syntax highlighting and error detection.
+                    </p>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Launch Tool <span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+<!-- Side Card 1 (CSS) -->
+<div class="md:col-span-4 glass-panel rounded-[2rem] p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:translate-y-[-2px] transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 border border-secondary/10">
+<span class="material-symbols-outlined text-secondary text-3xl" data-weight="fill">palette</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2 tracking-tight">Glassmorphism Generator</h3>
+<p class="text-on-surface-variant text-sm mb-6">Create stunning CSS frost effects with visual sliders and copy-paste code.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant text-[10px] font-bold rounded">CSS3</span>
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant text-[10px] font-bold rounded">UI DESIGN</span>
+</div>
+<button class="w-full py-3 rounded-xl bg-primary/5 font-bold text-primary hover:bg-primary hover:text-on-primary transition-all">
+                        Open Generator
+                    </button>
+</div>
+</div>
+<!-- Small Grid Tools -->
+<div class="md:col-span-4 glass-panel rounded-[2rem] p-6 shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all flex items-start gap-4">
+<div class="shrink-0 w-12 h-12 rounded-full bg-tertiary/5 border border-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">code</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Base64 Encoder</h4>
+<p class="text-xs text-on-surface-variant">Convert files and strings to Base64 format instantly.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-panel rounded-[2rem] p-6 shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all flex items-start gap-4">
+<div class="shrink-0 w-12 h-12 rounded-full bg-secondary/5 border border-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Hash Generator</h4>
+<p class="text-xs text-on-surface-variant">Generate secure MD5, SHA-1, and SHA-256 hashes.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-panel rounded-[2rem] p-6 shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all flex items-start gap-4">
+<div class="shrink-0 w-12 h-12 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">data_object</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">SQL Formatter</h4>
+<p class="text-xs text-on-surface-variant">Prettify your database queries for better readability.</p>
+</div>
+</div>
+</div>
+<!-- Asymmetric Detail Section -->
+<section class="flex flex-col lg:flex-row items-center gap-16 py-20 border-t border-on-surface/5">
+<div class="lg:w-1/2 relative">
+<div class="relative glass-panel p-4 rounded-[2.5rem] shadow-lg rotate-[-1deg]">
+<img class="rounded-[2rem] w-full" data-alt="Overhead view of a minimalist workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN9S0tr9F-BpZxJFnWkZuK0Sd_OHSCXVdPBSLBTOe0c3wr27TP1hkqf8DP93SKjFO5nqeggoPoh6X9l4b1FQjP9SmbTBDkZ6knunc1Nr8FPHIdVG1AUzcpP5vrcFiLbbkroI3DrzRyZvt5JGvOjtxwVNoCQPvPCrkklCauKS4vz3LWmNb37IsbhSVkzgAYoCSfv2XwcFocTsQK_l4dPsf7gPYoNs-Xet_WYI1M2HW_4nDWZjyIH_Zc5wnfMj46-RJ-mok0Uk_3stw"/>
+<!-- Overlapping Glass Card -->
+<div class="absolute -bottom-6 -right-6 glass-panel p-6 rounded-3xl shadow-xl max-w-[200px] border border-white rotate-[3deg]">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-3 h-3 rounded-full bg-error/40"></span>
+<span class="w-3 h-3 rounded-full bg-primary/40"></span>
+<span class="w-3 h-3 rounded-full bg-secondary/40"></span>
+</div>
+<div class="font-bold text-sm mb-1">Real-time Preview</div>
+<div class="text-[10px] text-on-surface-variant">See changes as you type with our reactive engine.</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<span class="font-bold text-primary/60 tracking-widest text-sm uppercase mb-4 block">Engineered for Flow</span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-8 text-on-surface leading-tight">
+                    Zero Friction <br/><span class="text-primary">Pure Productivity</span>
+</h2>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="shrink-0 mt-1">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div>
+<h5 class="font-bold text-xl mb-2">Client-Side Processing</h5>
+<p class="text-on-surface-variant">Your data never leaves your browser. All conversions and formatting happen locally for ultimate privacy and speed.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 mt-1">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+</div>
+<div>
+<h5 class="font-bold text-xl mb-2">Native Dark Mode</h5>
+<p class="text-on-surface-variant">Every tool is optimized for low-light environments, reducing eye strain during those late-night coding sessions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border-t border-on-surface/5 font-['Manrope'] text-sm tracking-wide mt-20">
+<div class="flex flex-col gap-4 items-center md:items-start mb-8 md:mb-0">
+<div class="font-['Plus_Jakarta_Sans'] font-bold text-on-surface text-xl">LuminousDev</div>
+<p class="text-on-surface-variant max-w-xs text-center md:text-left">© 2024 Luminous Layer. Built for the fluid web.</p>
+</div>
+<div class="flex gap-12 text-on-surface-variant">
+<div class="flex flex-col gap-3">
+<span class="font-bold text-on-surface mb-1">Product</span>
+<a class="hover:text-primary transition-all" href="#">Changelog</a>
+<a class="hover:text-primary transition-all" href="#">Templates</a>
+<a class="hover:text-primary transition-all" href="#">Integrations</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-on-surface mb-1">Resources</span>
+<a class="hover:text-primary transition-all" href="#">Community</a>
+<a class="hover:text-primary transition-all" href="#">GitHub</a>
+<a class="hover:text-primary transition-all" href="#">Docs</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-on-surface mb-1">Legal</span>
+<a class="hover:text-primary transition-all" href="#">Privacy</a>
+<a class="hover:text-primary transition-all" href="#">Terms</a>
+<a class="hover:text-primary transition-all" href="#">Security</a>
+</div>
+</div>
+</footer>
+<!-- Help FAB -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl">question_mark</span>
+</button>
+</div>
+</body></html>

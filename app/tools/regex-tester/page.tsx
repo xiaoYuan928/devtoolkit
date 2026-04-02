@@ -34,28 +34,28 @@ export default function RegexTesterPage() {
       <div className="space-y-4">
         <div className="flex gap-2">
           <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Pattern</label>
-            <input value={pattern} onChange={e => setPattern(e.target.value)} className="w-full font-mono text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400" placeholder="e.g. (\w+)@(\w+)\.(\w+)" />
+            <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Pattern</label>
+            <input value={pattern} onChange={e => setPattern(e.target.value)} className="w-full font-mono text-sm border border-white/10 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#00FF41]" placeholder="e.g. (\w+)@(\w+)\.(\w+)" />
           </div>
           <div className="w-24">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Flags</label>
-            <input value={flags} onChange={e => setFlags(e.target.value)} className="w-full font-mono text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-400" placeholder="gi" />
+            <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Flags</label>
+            <input value={flags} onChange={e => setFlags(e.target.value)} className="w-full font-mono text-sm border border-white/10 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#00FF41]" placeholder="gi" />
           </div>
         </div>
-        {results.error && <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-2 text-sm">{results.error}</div>}
+        {results.error && <div className="bg-white/10 border border-white/20 text-white/70 rounded-lg px-4 py-2 text-sm">{results.error}</div>}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Test String</label>
-          <textarea value={testStr} onChange={e => setTestStr(e.target.value)} className="w-full h-32 font-mono text-sm border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-400 resize-none" placeholder="Enter text to test against..." />
+          <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Test String</label>
+          <textarea value={testStr} onChange={e => setTestStr(e.target.value)} className="w-full h-32 font-mono text-sm border border-white/10 rounded-xl p-4 focus:ring-2 focus:ring-[#00FF41] resize-none" placeholder="Enter text to test against..." />
         </div>
         <div>
-          <h3 className="text-sm font-semibold text-gray-700 mb-2">Matches ({results.matches.length})</h3>
-          {results.matches.length === 0 && !results.error && <p className="text-sm text-gray-400">No matches</p>}
+          <h3 className="text-sm font-semibold text-[#e2e2e2] mb-2">Matches ({results.matches.length})</h3>
+          {results.matches.length === 0 && !results.error && <p className="text-sm text-[#c6c6c6]">No matches</p>}
           <div className="space-y-2">
             {results.matches.map((m, i) => (
-              <div key={i} className="bg-white border border-gray-200 rounded-lg p-3 font-mono text-sm">
-                <span className="text-indigo-600 font-bold">{m.match}</span>
-                <span className="text-gray-400 ml-2">at index {m.index}</span>
-                {m.groups && <div className="text-xs text-gray-500 mt-1">Groups: {JSON.stringify(m.groups)}</div>}
+              <div key={i} className="bg-[#1f1f1f] border border-white/10 rounded-lg p-3 font-mono text-sm">
+                <span className="text-[#00FF41] font-bold">{m.match}</span>
+                <span className="text-[#c6c6c6] ml-2">at index {m.index}</span>
+                {m.groups && <div className="text-xs text-[#c6c6c6] mt-1">Groups: {JSON.stringify(m.groups)}</div>}
               </div>
             ))}
           </div>

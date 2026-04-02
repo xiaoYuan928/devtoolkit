@@ -251,20 +251,20 @@ export default function ContractTemplatePage() {
       >
         <div className="max-w-3xl mx-auto pt-2">
           <div className="flex gap-3 mb-6">
-            <button onClick={handleCopy} className="bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-5 rounded-lg">
+            <button onClick={handleCopy} className="bg-[#2a2a2a] hover:bg-[#2a2a2a] text-white/70 font-medium py-2 px-5 rounded-lg">
               {copied ? "✅ Copied!" : "📋 Copy Text"}
             </button>
-            <button onClick={handleDownload} className="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-5 rounded-lg">
+            <button onClick={handleDownload} className="bg-[#1f1f1f] hover:bg-[#1f1f1f] text-white/70 font-medium py-2 px-5 rounded-lg">
               ⬇️ Download TXT
             </button>
-            <button onClick={() => { setGenerated(""); }} className="bg-gray-200 text-gray-700 font-medium py-2 px-5 rounded-lg">
+            <button onClick={() => { setGenerated(""); }} className="bg-[#1f1f1f] text-[#e2e2e2] font-medium py-2 px-5 rounded-lg">
               ← Edit
             </button>
-            <button onClick={() => { setGenerated(""); setSelected(null); setFormData({}); }} className="bg-gray-200 text-gray-700 font-medium py-2 px-5 rounded-lg">
+            <button onClick={() => { setGenerated(""); setSelected(null); setFormData({}); }} className="bg-[#1f1f1f] text-[#e2e2e2] font-medium py-2 px-5 rounded-lg">
               🏠 New Contract
             </button>
           </div>
-          <div className="bg-white rounded-xl shadow p-8 font-mono text-sm whitespace-pre-wrap leading-relaxed">
+          <div className="bg-[#1f1f1f] rounded-xl shadow p-8 font-mono text-sm whitespace-pre-wrap leading-relaxed">
             {generated}
           </div>
         </div>
@@ -276,32 +276,32 @@ export default function ContractTemplatePage() {
     return (
       <ToolLayout title={contract.name} description={contract.desc} width="wide">
         <div className="max-w-3xl mx-auto pt-2">
-          <button onClick={() => { setSelected(null); setFormData({}); }} className="text-amber-700 hover:text-amber-800 mb-4">
+          <button onClick={() => { setSelected(null); setFormData({}); }} className="text-[#e2e2e2] hover:text-[#c6c6c6] mb-4">
             ← Back
           </button>
-          <div className="bg-white rounded-xl shadow p-8">
+          <div className="bg-[#1f1f1f] rounded-xl shadow p-8">
             <div className="space-y-4">
               {contract.fields.map((f) => (
                 <div key={f.id}>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">{f.label}</label>
+                  <label className="block text-sm font-medium text-[#e2e2e2] mb-1">{f.label}</label>
                   {f.type === "textarea" ? (
-                    <textarea rows={3} placeholder={f.placeholder} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500"
+                    <textarea rows={3} placeholder={f.placeholder} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41]"
                       value={formData[f.id] || ""} onChange={(e) => setFormData({ ...formData, [f.id]: e.target.value })} />
                   ) : f.type === "select" ? (
-                    <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500"
+                    <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41]"
                       value={formData[f.id] || ""} onChange={(e) => setFormData({ ...formData, [f.id]: e.target.value })}>
                       <option value="">Select...</option>
                       {f.options?.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
                   ) : (
-                    <input type={f.type} placeholder={f.placeholder} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500"
+                    <input type={f.type} placeholder={f.placeholder} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#00FF41]"
                       value={formData[f.id] || ""} onChange={(e) => setFormData({ ...formData, [f.id]: e.target.value })} />
                   )}
                 </div>
               ))}
             </div>
             <button onClick={handleGenerate}
-              className="w-full mt-8 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl text-lg">
+              className="w-full mt-8 bg-[#2a2a2a] hover:bg-[#2a2a2a] text-white/70 font-semibold py-3 rounded-xl text-lg">
               Generate Contract →
             </button>
           </div>
@@ -321,10 +321,10 @@ export default function ContractTemplatePage() {
         <div className="grid md:grid-cols-3 gap-4">
           {CONTRACT_TYPES.map((c) => (
             <button key={c.id} onClick={() => setSelected(c.id)}
-              className="bg-white rounded-xl shadow hover:shadow-lg p-6 text-left transition border-2 border-transparent hover:border-amber-500">
+              className="bg-[#1f1f1f] rounded-xl shadow hover:shadow-lg p-6 text-left transition border-2 border-transparent hover:border-amber-500">
               <div className="text-3xl mb-2">{c.icon}</div>
               <h3 className="font-bold text-lg mb-1">{c.name}</h3>
-              <p className="text-sm text-gray-500">{c.desc}</p>
+              <p className="text-sm text-[#c6c6c6]">{c.desc}</p>
             </button>
           ))}
         </div>
@@ -336,9 +336,9 @@ export default function ContractTemplatePage() {
               { q: "Is it really free?", a: "Yes, 100% free. Generate and download as many contracts as you need. No sign-up, no hidden fees." },
               { q: "Can I customize the generated contract?", a: "Absolutely. Copy the text and modify it to fit your specific situation." },
             ].map((f, i) => (
-              <details key={i} className="bg-white rounded-lg shadow p-4">
+              <details key={i} className="bg-[#1f1f1f] rounded-lg shadow p-4">
                 <summary className="font-semibold cursor-pointer">{f.q}</summary>
-                <p className="mt-2 text-gray-600 text-sm">{f.a}</p>
+                <p className="mt-2 text-[#c6c6c6] text-sm">{f.a}</p>
               </details>
             ))}
           </div>

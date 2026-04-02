@@ -162,8 +162,8 @@ export default function InvoiceGeneratorPage() {
       {/* Template selector + actions */}
       <div className="py-2 flex flex-wrap items-center gap-4">
         <div className="flex items-center gap-2">
-          <label className="text-sm font-medium text-gray-700">Template:</label>
-          <div className="flex rounded-lg overflow-hidden border border-gray-300">
+          <label className="text-sm font-medium text-[#e2e2e2]">Template:</label>
+          <div className="flex rounded-lg overflow-hidden border border-white/10">
             {(['classic', 'modern', 'minimal'] as TemplateStyle[]).map((t) => (
               <button
                 key={t}
@@ -171,7 +171,7 @@ export default function InvoiceGeneratorPage() {
                 className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
                   template === t
                     ? 'bg-[--color-primary] text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-50'
+                    : 'bg-[#1f1f1f] text-[#c6c6c6] hover:bg-[#131313]'
                 }`}
               >
                 {t}
@@ -181,11 +181,11 @@ export default function InvoiceGeneratorPage() {
         </div>
 
         {/* Mobile tab toggle */}
-        <div className="flex lg:hidden rounded-lg overflow-hidden border border-gray-300 ml-auto">
+        <div className="flex lg:hidden rounded-lg overflow-hidden border border-white/10 ml-auto">
           <button
             onClick={() => setActiveTab('form')}
             className={`px-4 py-2 text-sm font-medium ${
-              activeTab === 'form' ? 'bg-[--color-primary] text-white' : 'bg-white text-gray-600'
+              activeTab === 'form' ? 'bg-[--color-primary] text-white' : 'bg-[#1f1f1f] text-[#c6c6c6]'
             }`}
           >
             Form
@@ -193,7 +193,7 @@ export default function InvoiceGeneratorPage() {
           <button
             onClick={() => setActiveTab('preview')}
             className={`px-4 py-2 text-sm font-medium ${
-              activeTab === 'preview' ? 'bg-[--color-primary] text-white' : 'bg-white text-gray-600'
+              activeTab === 'preview' ? 'bg-[--color-primary] text-white' : 'bg-[#1f1f1f] text-[#c6c6c6]'
             }`}
           >
             Preview
@@ -203,7 +203,7 @@ export default function InvoiceGeneratorPage() {
         <div className="ml-auto hidden lg:flex gap-2">
           <button
             onClick={resetForm}
-            className="px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="px-4 py-2 text-sm font-medium text-[#c6c6c6] border border-white/10 rounded-lg hover:bg-[#131313]"
           >
             Reset
           </button>
@@ -223,16 +223,16 @@ export default function InvoiceGeneratorPage() {
                 <Input label="Email" value={data.senderEmail} onChange={(v) => updateField('senderEmail', v)} placeholder="you@company.com" type="email" />
                 <Input label="Phone" value={data.senderPhone} onChange={(v) => updateField('senderPhone', v)} placeholder="+1 (555) 123-4567" />
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Logo</label>
+                  <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Logo</label>
                   <input ref={fileInputRef} type="file" accept="image/*" onChange={handleLogoUpload} className="hidden" />
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full text-left invoice-input text-gray-500 truncate"
+                    className="w-full text-left invoice-input text-[#c6c6c6] truncate"
                   >
                     {data.logoUrl ? '✓ Logo uploaded' : 'Upload logo...'}
                   </button>
                   {data.logoUrl && (
-                    <button onClick={() => updateField('logoUrl', null)} className="text-xs text-red-500 mt-1 hover:underline">
+                    <button onClick={() => updateField('logoUrl', null)} className="text-xs text-white/70 mt-1 hover:underline">
                       Remove logo
                     </button>
                   )}
@@ -260,7 +260,7 @@ export default function InvoiceGeneratorPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input label="Invoice Number" value={data.invoiceNumber} onChange={(v) => updateField('invoiceNumber', v)} />
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Currency</label>
+                  <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Currency</label>
                   <select
                     className="invoice-input"
                     value={data.currency}
@@ -280,11 +280,11 @@ export default function InvoiceGeneratorPage() {
             <FormSection title="Line Items">
               <div className="space-y-3">
                 {data.items.map((item, i) => (
-                  <div key={item.id} className="bg-gray-50 rounded-lg p-4">
+                  <div key={item.id} className="bg-[#131313] rounded-lg p-4">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-gray-500">Item {i + 1}</span>
+                      <span className="text-sm font-medium text-[#c6c6c6]">Item {i + 1}</span>
                       {data.items.length > 1 && (
-                        <button onClick={() => removeItem(item.id)} className="text-red-500 hover:text-red-700 text-sm">
+                        <button onClick={() => removeItem(item.id)} className="text-white/70 hover:text-white/70 text-sm">
                           Remove
                         </button>
                       )}
@@ -317,7 +317,7 @@ export default function InvoiceGeneratorPage() {
                         onChange={(e) => updateItem(item.id, 'unitPrice', parseFloat(e.target.value) || 0)}
                       />
                     </div>
-                    <div className="mt-2 text-right text-sm font-medium text-gray-700">
+                    <div className="mt-2 text-right text-sm font-medium text-[#e2e2e2]">
                       Amount: {formatCurrency(item.quantity * item.unitPrice, data.currency)}
                     </div>
                   </div>
@@ -325,7 +325,7 @@ export default function InvoiceGeneratorPage() {
               </div>
               <button
                 onClick={addItem}
-                className="mt-4 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-sm font-medium text-gray-600 hover:border-[--color-primary] hover:text-[--color-primary] transition-colors"
+                className="mt-4 w-full py-2.5 border-2 border-dashed border-white/10 rounded-lg text-sm font-medium text-[#c6c6c6] hover:border-[--color-primary] hover:text-[--color-primary] transition-colors"
               >
                 + Add Line Item
               </button>
@@ -335,7 +335,7 @@ export default function InvoiceGeneratorPage() {
             <FormSection title="Discount & Tax">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Discount Type</label>
+                  <label className="block text-sm font-medium text-[#e2e2e2] mb-1">Discount Type</label>
                   <select
                     className="invoice-input"
                     value={data.discountType}
@@ -353,15 +353,15 @@ export default function InvoiceGeneratorPage() {
                 />
                 <Input label="Tax Rate (%)" type="number" value={String(data.taxRate)} onChange={(v) => updateField('taxRate', parseFloat(v) || 0)} />
               </div>
-              <div className="mt-4 bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
-                <div className="flex justify-between"><span className="text-gray-600">Subtotal</span><span className="font-medium">{formatCurrency(data.subtotal, data.currency)}</span></div>
+              <div className="mt-4 bg-[#131313] rounded-lg p-4 space-y-2 text-sm">
+                <div className="flex justify-between"><span className="text-[#c6c6c6]">Subtotal</span><span className="font-medium">{formatCurrency(data.subtotal, data.currency)}</span></div>
                 {data.discountAmount > 0 && (
-                  <div className="flex justify-between"><span className="text-gray-600">Discount</span><span className="font-medium text-red-600">-{formatCurrency(data.discountAmount, data.currency)}</span></div>
+                  <div className="flex justify-between"><span className="text-[#c6c6c6]">Discount</span><span className="font-medium text-white/70">-{formatCurrency(data.discountAmount, data.currency)}</span></div>
                 )}
                 {data.taxAmount > 0 && (
-                  <div className="flex justify-between"><span className="text-gray-600">Tax ({data.taxRate}%)</span><span className="font-medium">{formatCurrency(data.taxAmount, data.currency)}</span></div>
+                  <div className="flex justify-between"><span className="text-[#c6c6c6]">Tax ({data.taxRate}%)</span><span className="font-medium">{formatCurrency(data.taxAmount, data.currency)}</span></div>
                 )}
-                <div className="border-t border-gray-300 pt-2 flex justify-between text-base font-bold">
+                <div className="border-t border-white/10 pt-2 flex justify-between text-base font-bold">
                   <span>Total</span><span className="text-[--color-primary]">{formatCurrency(data.total, data.currency)}</span>
                 </div>
               </div>
@@ -380,7 +380,7 @@ export default function InvoiceGeneratorPage() {
 
             {/* Mobile actions */}
             <div className="lg:hidden flex gap-3">
-              <button onClick={resetForm} className="flex-1 px-4 py-3 text-sm font-medium text-gray-600 border border-gray-300 rounded-lg">
+              <button onClick={resetForm} className="flex-1 px-4 py-3 text-sm font-medium text-[#c6c6c6] border border-white/10 rounded-lg">
                 Reset
               </button>
               <div className="flex-1">
@@ -392,10 +392,10 @@ export default function InvoiceGeneratorPage() {
           {/* Right: Preview */}
           <div className={`${activeTab === 'form' ? 'hidden lg:block' : ''}`}>
             <div className="sticky top-20">
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div className="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
-                  <h2 className="font-semibold text-gray-700">Preview</h2>
-                  <span className="text-xs text-gray-500 capitalize">{template} template</span>
+              <div className="bg-[#1f1f1f] rounded-2xl shadow-lg border border-white/10 overflow-hidden">
+                <div className="px-6 py-4 bg-[#131313] border-b border-white/10 flex items-center justify-between">
+                  <h2 className="font-semibold text-[#e2e2e2]">Preview</h2>
+                  <span className="text-xs text-[#c6c6c6] capitalize">{template} template</span>
                 </div>
                 <div className="p-6 overflow-auto max-h-[calc(100vh-12rem)]">
                   <InvoicePreviewHTML data={data} template={template} />
@@ -413,8 +413,8 @@ export default function InvoiceGeneratorPage() {
 
 function FormSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">{title}</h2>
+    <div className="bg-[#1f1f1f] rounded-xl border border-white/10 p-6">
+      <h2 className="text-lg font-semibold text-[#e2e2e2] mb-4">{title}</h2>
       {children}
     </div>
   );
@@ -435,7 +435,7 @@ function Input({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+      <label className="block text-sm font-medium text-[#e2e2e2] mb-1">{label}</label>
       <input
         className="invoice-input"
         type={type}
@@ -460,7 +460,7 @@ function TextArea({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+      <label className="block text-sm font-medium text-[#e2e2e2] mb-1">{label}</label>
       <textarea
         className="invoice-input min-h-[4rem] resize-y"
         value={value}

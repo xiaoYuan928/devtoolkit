@@ -18,68 +18,73 @@ export default function HomePage() {
   })).filter(g => g.items.length > 0);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
-      {/* Hero */}
-      <div className="text-center mb-10">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Free <span className="text-indigo-500">Online Tools</span>
+    <div className="w-full">
+      {/* Hero Section */}
+      <section className="max-w-4xl mx-auto pt-24 pb-16 px-6 text-center">
+        <h1 className="font-headline font-black text-5xl md:text-7xl uppercase mb-6 tracking-tight text-white">
+          Free Online <span className="text-[#00FF41]">Tools</span>
         </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-          {tools.length} tools, all free, all open source. For developers, writers, marketers, and businesses. Everything runs in your browser.
+        <p className="text-lg md:text-xl font-body text-white/50 max-w-2xl mx-auto mb-12 uppercase tracking-wide">
+          High-performance computational utilities. No registration. No tracking. Pure utility.
         </p>
 
-        {/* Search */}
-        <div className="mt-6 max-w-md mx-auto">
+        {/* Search Bar */}
+        <div className="relative max-w-2xl mx-auto">
           <input
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Search tools..."
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+            placeholder="SEARCH_UTILITIES..."
+            className="w-full bg-[#2a2a2a] border border-white/10 text-white font-headline font-medium text-lg md:text-xl py-5 px-8 pr-16 rounded-lg focus:ring-1 focus:ring-[#00FF41] focus:border-[#00FF41] outline-none transition-all placeholder:text-white/20 uppercase"
           />
+          <div className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-[#00FF41]">🔍</div>
         </div>
-      </div>
+      </section>
 
       {/* Tools by Category */}
-      {grouped.map(group => (
-        <section key={group.key} className="mb-10">
-          <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <span>{group.icon}</span> {group.label}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {group.items.map(tool => (
-              <Link
-                key={tool.slug}
-                href={`/tools/${tool.slug}`}
-                className="group bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg hover:border-indigo-200 transition-all"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0 w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-mono text-sm font-bold">
-                    {tool.icon}
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">{tool.name}</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">{tool.description}</p>
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
+        {grouped.map(group => (
+          <div key={group.key} className="mb-12">
+            <h2 className="text-xl font-black text-white mb-6 flex items-center gap-3 uppercase tracking-wider">
+              <span className="text-2xl">{group.icon}</span> {group.label}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {group.items.map(tool => (
+                <Link
+                  key={tool.slug}
+                  href={`/tools/${tool.slug}`}
+                  className="group tool-card bg-[#1f1f1f] border border-white/5 rounded-lg p-8 flex flex-col h-full transition-all duration-200 hover:border-[#00FF41] hover:bg-[#2a2a2a] hover:-translate-y-1"
+                >
+                  <div className="flex justify-between items-start mb-6">
+                    <span className="text-3xl">{tool.icon}</span>
+                    <span className="text-white/10 text-xs font-black uppercase tracking-widest">Tool</span>
                   </div>
-                </div>
-              </Link>
-            ))}
+                  <h3 className="font-headline font-black text-2xl mb-3 text-white uppercase tracking-tight">{tool.name}</h3>
+                  <p className="font-body text-white/50 text-sm mb-8 flex-grow leading-relaxed">{tool.description}</p>
+                  <button className="w-full py-3 border border-white/10 group-hover:border-[#00FF41] group-hover:text-[#00FF41] transition-colors font-headline uppercase text-xs font-black tracking-widest">
+                    Execute Tool
+                  </button>
+                </Link>
+              ))}
+            </div>
           </div>
-        </section>
-      ))}
+        ))}
+      </section>
 
       {/* Open Source Banner */}
-      <section className="mt-12 bg-indigo-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-extrabold text-gray-900">100% Open Source</h2>
-        <p className="text-gray-600 mt-2">MIT licensed. Star, fork, contribute, or self-host.</p>
-        <a
-          href="https://github.com/qiangxy888/devtoolkit"
-          target="_blank"
-          rel="noopener"
-          className="mt-4 inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800"
-        >
-          ⭐ Star on GitHub
-        </a>
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
+        <div className="bg-[#1f1f1f] border border-[#00FF41]/20 rounded-xl p-8 md:p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-headline font-black text-white mb-4 uppercase">100% Open Source</h2>
+          <p className="text-white/60 mb-8 uppercase text-sm tracking-wider">MIT licensed. Star, fork, contribute, or self-host.</p>
+          <a
+            href="https://github.com/xiaoYuan928/devtoolkit"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 bg-[#00FF41] text-black px-8 py-4 rounded-lg font-headline font-black uppercase text-sm tracking-widest hover:bg-[#00FF41]/90 transition-colors"
+          >
+            ⭐ Star on GitHub
+          </a>
+        </div>
       </section>
 
       {/* JSON-LD */}

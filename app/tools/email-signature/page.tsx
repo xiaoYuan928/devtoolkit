@@ -143,7 +143,7 @@ export default function EmailSignaturePage() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Form */}
           <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow p-6">
+            <div className="bg-[#1f1f1f] rounded-xl shadow p-6">
               <h2 className="text-lg font-bold mb-4">Your Information</h2>
               <div className="space-y-3">
                 {([
@@ -157,13 +157,13 @@ export default function EmailSignaturePage() {
                   ["twitter", "X/Twitter", "@handle"],
                 ] as [keyof SigData, string, string][]).map(([field, label, placeholder]) => (
                   <div key={field}>
-                    <label className="text-sm font-medium text-gray-600">{label}</label>
-                    <input type="text" placeholder={placeholder} className="w-full mt-1 px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    <label className="text-sm font-medium text-[#c6c6c6]">{label}</label>
+                    <input type="text" placeholder={placeholder} className="w-full mt-1 px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#00FF41] focus:border-[#00FF41]"
                       value={data[field]} onChange={(e) => update(field, e.target.value)} />
                   </div>
                 ))}
                 <div>
-                  <label className="text-sm font-medium text-gray-600">Brand Color</label>
+                  <label className="text-sm font-medium text-[#c6c6c6]">Brand Color</label>
                   <div className="flex items-center gap-2 mt-1">
                     <input type="color" value={data.color} onChange={(e) => update("color", e.target.value)}
                       className="w-10 h-10 rounded border cursor-pointer" />
@@ -175,14 +175,14 @@ export default function EmailSignaturePage() {
             </div>
 
             {/* Templates */}
-            <div className="bg-white rounded-xl shadow p-6">
+            <div className="bg-[#1f1f1f] rounded-xl shadow p-6">
               <h2 className="text-lg font-bold mb-4">Choose Template</h2>
               <div className="grid grid-cols-2 gap-2">
                 {TEMPLATES.map((t) => (
                   <button key={t.id} onClick={() => update("template", t.id)}
-                    className={`p-3 rounded-lg text-left transition border-2 ${data.template === t.id ? "border-emerald-500 bg-emerald-50" : "border-gray-200 hover:border-gray-300"}`}>
+                    className={`p-3 rounded-lg text-left transition border-2 ${data.template === t.id ? "border-[#00FF41] bg-[#00FF41]" : "border-white/10 hover:border-white/10"}`}>
                     <div className="font-semibold text-sm">{t.name}</div>
-                    <div className="text-xs text-gray-500">{t.desc}</div>
+                    <div className="text-xs text-[#c6c6c6]">{t.desc}</div>
                   </button>
                 ))}
               </div>
@@ -191,22 +191,22 @@ export default function EmailSignaturePage() {
 
           {/* Preview */}
           <div className="space-y-4">
-            <div className="bg-white rounded-xl shadow p-6 sticky top-6">
+            <div className="bg-[#1f1f1f] rounded-xl shadow p-6 sticky top-6">
               <h2 className="text-lg font-bold mb-4">Live Preview</h2>
-              <div className="border rounded-lg p-6 bg-gray-50 min-h-[120px]" dangerouslySetInnerHTML={{ __html: html }} />
+              <div className="border rounded-lg p-6 bg-[#131313] min-h-[120px]" dangerouslySetInnerHTML={{ __html: html }} />
 
               <div className="flex gap-3 mt-6">
                 <button onClick={() => handleCopy("rich")}
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition text-sm">
+                  className="flex-1 bg-[#00FF41] hover:bg-[#00FF41] text-white/70 font-medium py-2 px-4 rounded-lg transition text-sm">
                   {copied === "rich" ? "✅ Copied!" : "📋 Copy Signature"}
                 </button>
                 <button onClick={() => handleCopy("html")}
-                  className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded-lg transition text-sm">
+                  className="flex-1 bg-[#1f1f1f] hover:bg-[#1f1f1f] text-white/70 font-medium py-2 px-4 rounded-lg transition text-sm">
                   {copied === "html" ? "✅ Copied!" : "</> Copy HTML"}
                 </button>
               </div>
 
-              <div className="mt-4 text-xs text-gray-500">
+              <div className="mt-4 text-xs text-[#c6c6c6]">
                 <p className="font-semibold mb-1">How to add to your email client:</p>
                 <p>• <strong>Gmail:</strong> Settings → See all settings → Signature → Paste</p>
                 <p>• <strong>Outlook:</strong> Settings → Mail → Compose → Email signature → Paste</p>

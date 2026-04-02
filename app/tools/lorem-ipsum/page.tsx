@@ -27,14 +27,14 @@ export default function LoremIpsumPage() {
   return (
     <ToolLayout title="Lorem Ipsum Generator" description="Generate placeholder text for your designs and mockups.">
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <label className="text-sm text-gray-700">Paragraphs:</label>
-        <input type="number" min={1} max={20} value={paragraphs} onChange={e => setParagraphs(Number(e.target.value))} className="w-16 border border-gray-300 rounded-lg px-2 py-2 text-sm" />
-        <label className="text-sm text-gray-700">Words each:</label>
-        <input type="number" min={10} max={200} value={words} onChange={e => setWords(Number(e.target.value))} className="w-16 border border-gray-300 rounded-lg px-2 py-2 text-sm" />
-        <button onClick={generate} className="px-4 py-2 bg-indigo-500 text-white rounded-lg text-sm font-medium hover:bg-indigo-600">Generate</button>
-        {output && <button onClick={copy} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium">📋 Copy</button>}
+        <label className="text-sm text-[#e2e2e2]">Paragraphs:</label>
+        <input type="number" min={1} max={20} value={paragraphs} onChange={e => setParagraphs(Number(e.target.value))} className="w-16 border border-white/10 rounded-lg px-2 py-2 text-sm" />
+        <label className="text-sm text-[#e2e2e2]">Words each:</label>
+        <input type="number" min={10} max={200} value={words} onChange={e => setWords(Number(e.target.value))} className="w-16 border border-white/10 rounded-lg px-2 py-2 text-sm" />
+        <button onClick={generate} className="px-4 py-2 bg-[#00FF41] text-white/70 rounded-lg text-sm font-medium hover:bg-[#00FF41]">Generate</button>
+        {output && <button onClick={copy} className="px-4 py-2 bg-[#1f1f1f] text-[#e2e2e2] rounded-lg text-sm font-medium">📋 Copy</button>}
       </div>
-      {output && <textarea value={output} readOnly className="w-full h-64 font-mono text-sm border border-gray-200 rounded-xl p-4 bg-gray-50 resize-none" />}
+      {output && <textarea value={output} readOnly className="w-full h-64 font-mono text-sm border border-white/10 rounded-xl p-4 bg-[#131313] resize-none" />}
     </ToolLayout>
   );
 }

@@ -20,12 +20,12 @@ export default function ToolLayout({
   children,
 }: ToolLayoutProps) {
   return (
-    <div className={`${widthClasses[width]} mx-auto px-4 py-8`}>
-      <div className="mb-4">
-        <Link href="/" className="text-indigo-500 hover:underline text-sm">← All Tools</Link>
+    <div className={`${widthClasses[width]} mx-auto px-6 md:px-12 py-8`}>
+      <div className="mb-6">
+        <Link href="/" className="text-[#00FF41] hover:text-white text-sm font-semibold uppercase tracking-wide transition-colors">← All Tools</Link>
       </div>
-      <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">{title}</h1>
-      <p className="text-gray-600 text-sm mb-6">{description}</p>
+      <h1 className="text-3xl sm:text-4xl font-headline font-black text-[#e2e2e2] mb-2 uppercase tracking-tight">{title}</h1>
+      <p className="text-[#c6c6c6] text-base mb-8 leading-relaxed">{description}</p>
       {children}
     </div>
   );

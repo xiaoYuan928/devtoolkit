@@ -40,14 +40,14 @@ export default function CsvJsonPage() {
   return (
     <ToolLayout title="CSV ↔ JSON Converter" description="Convert between CSV and JSON formats instantly.">
       <div className="flex gap-2 mb-4">
-        <button onClick={() => setMode('csv2json')} className={`px-4 py-2 rounded-lg text-sm font-medium ${mode === 'csv2json' ? 'bg-indigo-500 text-white' : 'bg-gray-200 text-gray-700'}`}>CSV → JSON</button>
-        <button onClick={() => setMode('json2csv')} className={`px-4 py-2 rounded-lg text-sm font-medium ${mode === 'json2csv' ? 'bg-indigo-500 text-white' : 'bg-gray-200 text-gray-700'}`}>JSON → CSV</button>
-        <button onClick={convert} className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm font-medium hover:bg-green-600">Convert</button>
-        <button onClick={() => navigator.clipboard.writeText(output)} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium">📋 Copy</button>
+        <button onClick={() => setMode('csv2json')} className={`px-4 py-2 rounded-lg text-sm font-medium ${mode === 'csv2json' ? 'bg-[#00FF41] text-white' : 'bg-[#1f1f1f] text-[#e2e2e2]'}`}>CSV → JSON</button>
+        <button onClick={() => setMode('json2csv')} className={`px-4 py-2 rounded-lg text-sm font-medium ${mode === 'json2csv' ? 'bg-[#00FF41] text-white' : 'bg-[#1f1f1f] text-[#e2e2e2]'}`}>JSON → CSV</button>
+        <button onClick={convert} className="px-4 py-2 bg-[#00FF41] text-white/70 rounded-lg text-sm font-medium hover:bg-[#00FF41]">Convert</button>
+        <button onClick={() => navigator.clipboard.writeText(output)} className="px-4 py-2 bg-[#1f1f1f] text-[#e2e2e2] rounded-lg text-sm font-medium">📋 Copy</button>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <textarea value={input} onChange={e => setInput(e.target.value)} className="w-full h-64 font-mono text-sm border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-400 resize-none" placeholder={mode === 'csv2json' ? 'name,email,age\nJohn,john@test.com,30' : '[{"name":"John","email":"john@test.com"}]'} />
-        <textarea value={output} readOnly className="w-full h-64 font-mono text-sm border border-gray-200 rounded-xl p-4 bg-gray-50 resize-none" placeholder="Output..." />
+        <textarea value={input} onChange={e => setInput(e.target.value)} className="w-full h-64 font-mono text-sm border border-white/10 rounded-xl p-4 focus:ring-2 focus:ring-[#00FF41] resize-none" placeholder={mode === 'csv2json' ? 'name,email,age\nJohn,john@test.com,30' : '[{"name":"John","email":"john@test.com"}]'} />
+        <textarea value={output} readOnly className="w-full h-64 font-mono text-sm border border-white/10 rounded-xl p-4 bg-[#131313] resize-none" placeholder="Output..." />
       </div>
     </ToolLayout>
   );

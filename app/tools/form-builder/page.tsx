@@ -135,15 +135,15 @@ export default function FormBuilderPage() {
               <option value="modern">Modern Style</option>
               <option value="minimal">Minimal Style</option>
             </select>
-            <button onClick={resetForm} className="px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Reset</button>
-            <button onClick={copyCode} className="px-4 py-2 text-sm font-semibold text-white bg-[--color-primary] rounded-lg hover:bg-[--color-primary-dark]">
+            <button onClick={resetForm} className="px-4 py-2 text-sm font-medium text-[#c6c6c6] border border-white/10 rounded-lg hover:bg-[#131313]">Reset</button>
+            <button onClick={copyCode} className="px-4 py-2 text-sm font-semibold text-white/70 bg-[--color-primary] rounded-lg hover:bg-[--color-primary-dark]">
               {copied ? '✓ Copied!' : 'Copy Code'}
             </button>
           </div>
         </div>
-        <div className="flex lg:hidden mt-4 rounded-lg overflow-hidden border border-gray-300">
+        <div className="flex lg:hidden mt-4 rounded-lg overflow-hidden border border-white/10">
           {(['build', 'preview', 'code'] as Tab[]).map(t => (
-            <button key={t} onClick={() => setTab(t)} className={`flex-1 px-4 py-2 text-sm font-medium capitalize ${tab === t ? 'bg-[--color-primary] text-white' : 'bg-white text-gray-600'}`}>{t}</button>
+            <button key={t} onClick={() => setTab(t)} className={`flex-1 px-4 py-2 text-sm font-medium capitalize ${tab === t ? 'bg-[--color-primary] text-white' : 'bg-[#1f1f1f] text-[#c6c6c6]'}`}>{t}</button>
           ))}
         </div>
       </div>
@@ -152,11 +152,11 @@ export default function FormBuilderPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left: Component Panel */}
           <div className={`lg:col-span-2 ${tab !== 'build' ? 'hidden lg:block' : ''}`}>
-            <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-20">
-              <h2 className="text-sm font-semibold text-gray-700 mb-3">Add Fields</h2>
+            <div className="bg-[#1f1f1f] rounded-xl border border-white/10 p-4 sticky top-20">
+              <h2 className="text-sm font-semibold text-[#e2e2e2] mb-3">Add Fields</h2>
               <div className="space-y-1">
                 {fieldTypes.map(ft => (
-                  <button key={ft.type} onClick={() => addField(ft.type)} className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-[--color-primary] rounded-lg transition-colors text-left">
+                  <button key={ft.type} onClick={() => addField(ft.type)} className="w-full flex items-center gap-2 px-3 py-2 text-sm text-[#e2e2e2] hover:bg-[#2a2a2a] hover:text-[--color-primary] rounded-lg transition-colors text-left">
                     <span className="w-6 text-center text-xs">{ft.icon}</span>{ft.label}
                   </button>
                 ))}
@@ -166,10 +166,10 @@ export default function FormBuilderPage() {
 
           {/* Center: Canvas */}
           <div className={`lg:col-span-6 ${tab !== 'build' ? 'hidden lg:block' : ''}`}>
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
-              <input className="text-xl font-bold text-gray-900 w-full mb-1 border-0 border-b-2 border-transparent focus:border-[--color-primary] focus:outline-none pb-1" value={config.title} onChange={e => setConfig(prev => ({ ...prev, title: e.target.value }))} placeholder="Form Title" />
+            <div className="bg-[#1f1f1f] rounded-xl border border-white/10 p-6">
+              <input className="text-xl font-bold text-[#e2e2e2] w-full mb-1 border-0 border-b-2 border-transparent focus:border-[--color-primary] focus:outline-none pb-1" value={config.title} onChange={e => setConfig(prev => ({ ...prev, title: e.target.value }))} placeholder="Form Title" />
               <div className="flex gap-4 mb-6 mt-2">
-                <input className="text-sm text-gray-500 border-0 border-b border-transparent focus:border-gray-300 focus:outline-none" value={config.submitText} onChange={e => setConfig(prev => ({ ...prev, submitText: e.target.value }))} placeholder="Submit button text" />
+                <input className="text-sm text-[#c6c6c6] border-0 border-b border-transparent focus:border-white/10 focus:outline-none" value={config.submitText} onChange={e => setConfig(prev => ({ ...prev, submitText: e.target.value }))} placeholder="Submit button text" />
               </div>
 
               <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -183,7 +183,7 @@ export default function FormBuilderPage() {
               </DndContext>
 
               {config.fields.length === 0 && (
-                <div className="py-12 text-center text-gray-400 border-2 border-dashed border-gray-200 rounded-xl">
+                <div className="py-12 text-center text-[#c6c6c6] border-2 border-dashed border-white/10 rounded-xl">
                   <p className="text-lg mb-2">No fields yet</p>
                   <p className="text-sm">Click a field type from the left panel to add it</p>
                 </div>
@@ -194,9 +194,9 @@ export default function FormBuilderPage() {
           {/* Right: Preview / Code / Editor */}
           <div className={`lg:col-span-4 ${tab === 'build' && !selectedField ? '' : ''}`}>
             <div className="sticky top-20 space-y-4">
-              <div className="hidden lg:flex rounded-lg overflow-hidden border border-gray-200">
+              <div className="hidden lg:flex rounded-lg overflow-hidden border border-white/10">
                 {(['preview', 'code'] as const).map(t => (
-                  <button key={t} onClick={() => setTab(t)} className={`flex-1 px-4 py-2 text-sm font-medium capitalize ${(tab === t || (tab === 'build' && t === 'preview')) ? 'bg-[--color-primary] text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                  <button key={t} onClick={() => setTab(t)} className={`flex-1 px-4 py-2 text-sm font-medium capitalize ${(tab === t || (tab === 'build' && t === 'preview')) ? 'bg-[--color-primary] text-white' : 'bg-[#1f1f1f] text-[#c6c6c6] hover:bg-[#131313]'}`}>
                     {t === 'preview' ? '👁 Preview' : '< > Code'}
                   </button>
                 ))}
@@ -207,10 +207,10 @@ export default function FormBuilderPage() {
               )}
 
               {(tab === 'preview' || tab === 'build') && !(selectedField && tab === 'build') && (
-                <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                  <div className="px-4 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-gray-700">Live Preview</span>
-                    <span className="text-xs text-gray-500 capitalize">{config.styleTheme}</span>
+                <div className="bg-[#1f1f1f] rounded-xl border border-white/10 overflow-hidden">
+                  <div className="px-4 py-3 bg-[#131313] border-b border-white/10 flex items-center justify-between">
+                    <span className="text-sm font-semibold text-[#e2e2e2]">Live Preview</span>
+                    <span className="text-xs text-[#c6c6c6] capitalize">{config.styleTheme}</span>
                   </div>
                   <div className="p-4">
                     <div dangerouslySetInnerHTML={{ __html: `<style>${cssCode}</style>${htmlCode}` }} />
@@ -225,9 +225,9 @@ export default function FormBuilderPage() {
           </div>
         </div>
 
-        <div className="mt-12 bg-indigo-50 rounded-2xl p-8 text-center border border-indigo-100">
-          <h2 className="text-2xl font-bold text-gray-900">Export Notes</h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+        <div className="mt-12 bg-[#2a2a2a] rounded-2xl p-8 text-center border border-[#00FF41]">
+          <h2 className="text-2xl font-bold text-[#e2e2e2]">Export Notes</h2>
+          <p className="mt-3 text-[#c6c6c6] max-w-2xl mx-auto">
             This tool generates static HTML and CSS in the browser. Use the exported code in landing pages, prototypes, or marketing sites, then connect submissions to your own backend or form endpoint.
           </p>
         </div>

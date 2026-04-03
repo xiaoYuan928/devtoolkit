@@ -45,6 +45,7 @@ export const tools: ToolInfo[] = [
   { slug: 'diff-checker', name: 'Diff Checker', description: 'Compare two texts and highlight differences', icon: '🔍', category: 'text' },
 
   { slug: 'color-converter', name: 'Color Converter', description: 'Convert between HEX, RGB, and HSL', icon: '🎨', category: 'web' },
+  { slug: 'subtitle', name: 'Subtitle Extractor', description: 'Extract and convert subtitles from videos (Deepgram or Whisper)', icon: '🎬', category: 'web' },
 
   { slug: 'regex-tester', name: 'Regex Tester', description: 'Test regular expressions with live matching', icon: '.*', category: 'dev' },
   { slug: 'timestamp', name: 'Unix Timestamp', description: 'Convert between Unix timestamps and dates', icon: '⏰', category: 'dev' },

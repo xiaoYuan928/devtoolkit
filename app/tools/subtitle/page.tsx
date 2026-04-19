@@ -152,36 +152,53 @@ export default function SubtitleExtractorPage() {
   const submitRequest = async (requestBody: any) => {
     try {
       setProgress(10);
-      addLog('发送请求到服务器...');
+      const methodName = requestBody.method === 'deepgram' ? 'Deepgram API' : 'Whisper';
+      addLog(`发送请求到服务器 (${methodName})...`);
 
-      const response = await fetch('/api/tools/subtitle', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-      });
+      // Whisper 处理时间可能很长，需要增加超时
+      const timeout = requestBody.method === 'whisper' ? 900000 : 120000;  // Whisper: 15分钟, Deepgram: 2分钟
 
-      setProgress(50);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || '请求失败');
+      try {
+        const response = await fetch('/api/tools/subtitle', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestBody),
+          signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+        setProgress(50);
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || '请求失败');
+        }
+
+        addLog('处理中...');
+        const data: TranscriptionResponse = await response.json();
+
+        if (!data.success) {
+          throw new Error(data.error || '转录失败');
+        }
+
+        setProgress(95);
+        addLog('格式化结果...');
+
+        setResult(data.result || null);
+        setProgress(100);
+        addLog('✅ 完成！');
+      } catch (error: any) {
+        clearTimeout(timeoutId);
+        if (error.name === 'AbortError') {
+          throw new Error(`处理超时（${methodName} 超过 ${timeout / 60000} 分钟）`);
+        }
+        throw error;
       }
-
-      addLog('处理中...');
-      const data: TranscriptionResponse = await response.json();
-
-      if (!data.success) {
-        throw new Error(data.error || '转录失败');
-      }
-
-      setProgress(95);
-      addLog('格式化结果...');
-
-      setResult(data.result || null);
-      setProgress(100);
-      addLog('✅ 完成！');
     } catch (error: any) {
       setError(error.message || '处理失败');
       addLog(`❌ 错误: ${error.message}`);
@@ -382,10 +399,10 @@ export default function SubtitleExtractorPage() {
 
             <button
               onClick={handleSubmit}
-              disabled={!isInputValid()}
+              disabled={!isInputValid() || method === 'deepgram'}
               className="w-full bg-[#00FF41] text-black font-headline font-black uppercase py-3 rounded-lg transition-all hover:bg-[#00FF41]/90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {method === 'deepgram' ? '快速转录（30-60 秒）' : '免费转录（5-15 分钟）'}
+              {method === 'deepgram' ? '快速转录（等待配置）' : '开始转录（免费，5-15 分钟）'}
             </button>
           </div>
         )}
@@ -393,7 +410,12 @@ export default function SubtitleExtractorPage() {
         {/* 3. 进度显示 */}
         {isProcessing && !result && (
           <div className="bg-[#2a2a2a] rounded-lg p-6 space-y-4 border border-white/5">
-            <h3 className="font-headline font-black text-[#e2e2e2] uppercase">处理中...</h3>
+            <div className="flex justify-between items-center">
+              <h3 className="font-headline font-black text-[#e2e2e2] uppercase">处理中...</h3>
+              <span className="text-xs text-white/50 bg-white/5 px-3 py-1 rounded">
+                {method === 'whisper' ? '免费方案 • 5-15 分钟' : '快速方案 • 30-60 秒'}
+              </span>
+            </div>
 
             {/* 进度条 */}
             <div className="space-y-2">

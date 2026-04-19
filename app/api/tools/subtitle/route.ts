@@ -9,6 +9,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { transcribeWithDeepgram, isDeepgramConfigured } from './lib/deepgram';
+import { transcribeWithWhisper, isWhisperAvailable } from './lib/whisper';
 import { downloadAudio, saveUploadedFile, cleanupTempFile } from './lib/audio';
 import {
   formatToSRT,
@@ -147,11 +148,23 @@ export async function POST(request: NextRequest) {
         );
       }
     } else if (method === 'whisper') {
-      // 免费方法：任务队列（暂未实现，返回错误）
-      return NextResponse.json(
-        { error: 'Whisper 免费方案正在开发中，请先使用 Deepgram 快速方案' },
-        { status: 503 }
-      );
+      // 免费方法：本地 Whisper 转录
+      const available = await isWhisperAvailable();
+      if (!available) {
+        return NextResponse.json(
+          { error: 'Whisper 未安装。请运行：pip install openai-whisper' },
+          { status: 503 }
+        );
+      }
+
+      try {
+        result = await transcribeWithWhisper(audioPath, language);
+      } catch (error: any) {
+        return NextResponse.json(
+          { error: error.message || 'Whisper 转录失败' },
+          { status: 500 }
+        );
+      }
     } else {
       return NextResponse.json(
         { error: '未知的处理方法' },
